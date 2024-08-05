@@ -6,6 +6,37 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_TWEET_LENGTH",
+				"outputs": [
+					{
+						"internalType": "uint16",
+						"name": "",
+						"type": "uint16"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "newTweetLength",
+						"type": "uint16"
+					}
+				],
+				"name": "changeTweetLength",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -62,11 +93,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_owner",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
 						"name": "_i",
 						"type": "uint256"
@@ -100,6 +126,19 @@
 						"internalType": "struct Twitter.Tweet",
 						"name": "",
 						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -173,11 +212,11 @@
 	},
 	"sources": {
 		"contract/twitter.sol": {
-			"keccak256": "0x4a2f4d4a321869455730c3e3c639c0e455c35922a5b369d6260016ea31498187",
+			"keccak256": "0xaeff1343c056a086e318ef7620b5eec58460305c9a30fa82a96679c5b5f2032d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://945c3b84c81eba11d03ebe602d1e1333bc8be7040975fe74894293917529f09e",
-				"dweb:/ipfs/Qmer4eThPiWyHwLqz5bprVdpyG5TFyWRpbr6exCBqq86EW"
+				"bzz-raw://7c07c7deb7c7325350d88c6fbc5091196e6cbedbae5c9a1030a60d9b2acb83a8",
+				"dweb:/ipfs/QmZQUHnSU4Mi9Z2MTsRP46KHKj6pbz6rryy4ACVnNcDD3j"
 			]
 		}
 	},
