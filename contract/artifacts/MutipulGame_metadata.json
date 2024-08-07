@@ -1,0 +1,72 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "joinGame",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "users",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contract/Game.sol": "MutipulGame"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contract/Game.sol": {
+			"keccak256": "0x6aa0433ab691ebbda7c0fe0c30b3ed7332460379d35a03f516a80a13f3a88b0b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://23d93c4006b42e93f368d3bdf24bd03a73fa541aae54524d98ba5d8a158be943",
+				"dweb:/ipfs/QmYTarz2fGTS1WChrA3f27tkkT6uzuvK7pjSAx1tqp1VKX"
+			]
+		}
+	},
+	"version": 1
+}

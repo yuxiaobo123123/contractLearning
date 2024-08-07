@@ -1,13 +1,29 @@
 
 
 // SPDX-License-Identifier: MIT
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+
 pragma solidity ^0.8.0;
 
-contract Twitter{
+
+interface IProfile {
+
+   struct UserProfile {
+        string displayName;
+        string bio;
+    }
+
+    function setProfile(string memory displayName, string memory bio) external;
+    function getProfile(address _user) external view returns (UserProfile memory);
+    
+}
+
+contract Twitter is Ownable{
 
     uint16 public MAX_TWEET_LENGTH = 255;
 
-    //defined struct
+    //defined struct 
     struct Tweet{
         uint256 id;
         address author;
@@ -18,27 +34,39 @@ contract Twitter{
 
 
     mapping (address => Tweet[]) public tweets;
-    address public owner;
+
+    IProfile profileContarct;
 
     event TweetCreated(uint256 id, address auther, string content, uint256 timestamp);
     event TweetLiked(address liker,address tweetAuthor,uint256 tweetId,uint newLikeCount);
     event TweetUnliked(address unliker,address tweetAuthor,uint256 tweetId,uint newLikeCount);
 
-    constructor(){
-        owner = msg.sender;
-    }
-
-    modifier onlyOwner(){
-        require(msg.sender == owner,"YOU ARE NOT THE OWNER");
+    modifier onlyRegistered(){
+        IProfile.UserProfile memory userProfileTemp = profileContarct.getProfile(msg.sender);
+        require(bytes(userProfileTemp.displayName).length > 0,"USER NOT REGISTED");
         _;
     }
 
+
+    constructor(address _profileContract) Ownable(msg.sender) {
+        profileContarct = IProfile(_profileContract);
+    }
 
     function changeTweetLength(uint16 newTweetLength) public onlyOwner{
         MAX_TWEET_LENGTH = newTweetLength;
     }
 
-    function createTweet(string memory _tweet) public {
+    function getTotalLikes(address _author) external view returns(uint){
+
+        uint totalLikes;
+        for(uint i = 0; i< tweets[_author].length;i++){
+            totalLikes+=  tweets[_author][i].likes;
+        }
+        return totalLikes;
+
+    }
+
+    function createTweet(string memory _tweet) public onlyRegistered {
 
         require(bytes(_tweet).length<=MAX_TWEET_LENGTH,"Your tweet is too long bro");
 
